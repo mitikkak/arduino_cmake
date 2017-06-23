@@ -3,7 +3,10 @@
 
 project(blink)
 cmake_minimum_required(VERSION 3.1)
-set(ARDUINO_PATH /home/mitikkak/arduino/arduino-1.8.0)
+set(ARDUINO_PATH $ENV{ARDUINO_PATH} CACHE STRING "")
+if(NOT EXISTS ${ARDUINO_PATH})
+   message(FATAL_ERROR "ARDUINO_PATH environment variable missing! It should point to root of arduino installation, for example /home/your_name/arduino-1.6.12/")
+endif()
 set(AVR_COMPILER_DIR ${ARDUINO_PATH}/hardware/tools/avr/bin)
 set(CMAKE_C_COMPILER ${AVR_COMPILER_DIR}/avr-gcc)
 set(CMAKE_CXX_COMPILER ${AVR_COMPILER_DIR}/avr-g++)
@@ -16,7 +19,7 @@ INCLUDE_DIRECTORIES(${ARDUINO_CORE_SRC} ${ARDUINO_PINS})
 add_definitions(-c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics -MMD -flto -mmcu=atmega328p -DF_CPU=16000000L -DARDUINO=10800 -DARDUINO_AVR_UNO -DARDUINO_ARCH_AVR)
 
 set(sources  ${CMAKE_CURRENT_SOURCE_DIR}/blink.cpp)
-set(arduino_core_sources ${ARDUINO_CORE_SRC}/main.cpp ${ARDUINO_CORE_SRC}/wiring.c)
+aux_source_directory(${ARDUINO_CORE_SRC} arduino_core_sources)
 
 # Find Arduino SDK delivered programs
 find_program(AR_AVR_GCC NAMES avr-gcc PATHS ${ARDUINO_PATH}/hardware/tools/avr/bin NO_DEFAULT_PATH)
