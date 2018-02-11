@@ -3,7 +3,7 @@ set(core_path  ${ESP8266_PATH}/hardware/esp8266/2.4.0/cores/esp8266)
 set(lib64_path ${core_path}/libb64)
 set(spiffs_path ${core_path}/spiffs)
 set(umm_malloc_path ${core_path}/umm_malloc)
-set(esp8266_core_sources ${core_path}/cont.S
+set(esp8266_core_sources
                          ${core_path}/cont_util.c
                          ${core_path}/core_esp8266_eboot_command.c
                          ${core_path}/core_esp8266_flash_utils.c
@@ -55,4 +55,17 @@ set(esp8266_core_sources ${core_path}/cont.S
                          ${core_path}/spiffs_api.cpp
                          ${core_path}/spiffs_hal.cpp
 )
+set(esp8266_core_asm_sources
+    ${core_path}/cont.S
+)
+
+enable_language(ASM)
+add_library(esp8266_core_asm ${esp8266_core_asm_sources})
+target_compile_options(
+    esp8266_core_asm PRIVATE
+    -g -x assembler-with-cpp
+)
+
+add_library(esp8266_core ${esp8266_core_sources})
+target_link_libraries(esp8266_core esp8266_core_asm)
 
