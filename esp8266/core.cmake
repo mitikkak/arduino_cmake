@@ -3,7 +3,7 @@ set(core_path  ${ESP8266_PATH}/hardware/esp8266/2.4.0/cores/esp8266)
 set(lib64_path ${core_path}/libb64)
 set(spiffs_path ${core_path}/spiffs)
 set(umm_malloc_path ${core_path}/umm_malloc)
-set(esp8266_core_sources
+set(esp8266_core_sources_set_1
                          ${core_path}/cont_util.c
                          ${core_path}/core_esp8266_eboot_command.c
                          ${core_path}/core_esp8266_flash_utils.c
@@ -32,6 +32,8 @@ set(esp8266_core_sources
                          ${spiffs_path}/spiffs_hydrogen.c
                          ${spiffs_path}/spiffs_nucleus.c
                          ${umm_malloc_path}/umm_malloc.c
+)
+set(esp8266_core_sources_set_2
                          ${core_path}/Esp.cpp
                          ${core_path}/FS.cpp
                          ${core_path}/FunctionalInterrupt.cpp
@@ -60,12 +62,23 @@ set(esp8266_core_asm_sources
 )
 
 enable_language(ASM)
-add_library(esp8266_core_asm ${esp8266_core_asm_sources})
+add_library(esp8266_core_asm STATIC ${esp8266_core_asm_sources})
 target_compile_options(
     esp8266_core_asm PRIVATE
     -g -x assembler-with-cpp
 )
 
-add_library(esp8266_core ${esp8266_core_sources})
-target_link_libraries(esp8266_core esp8266_core_asm)
 
+add_library(esp8266_core STATIC ${esp8266_core_sources_set_1})
+add_library(esp8266_core_set_2 STATIC ${esp8266_core_sources_set_2})
+target_link_libraries(esp8266_core esp8266_core_set_2 esp8266_core_asm)
+
+target_compile_options(
+    esp8266_core PRIVATE
+    ${compiler_set_1}
+)
+
+target_compile_options(
+    esp8266_core_set_2 PRIVATE
+    ${compiler_set_2}
+)
