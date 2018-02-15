@@ -71,6 +71,7 @@ set(teensy_core_cpp_sources
   ${core_path}/usb_flightsim.cpp
   ${core_path}/usb_inst.cpp
   ${core_path}/yield.cpp
+  ${core_path}/EventResponder.cpp
 )
 add_library(teensy_core STATIC ${teensy_core_cpp_sources})
 target_compile_options(
