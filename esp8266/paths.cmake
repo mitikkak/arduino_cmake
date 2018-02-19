@@ -23,3 +23,7 @@ include_directories(${ESP8266_PATH}/hardware/esp8266/2.4.0/tools/sdk/include
 include_directories(${ESP8266_PATH}/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2
                     ${ESP8266_PATH}/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/include/c++/4.8.2/xtensa-lx106-elf
 )
+
+set(SDFAT_ESP8266_DIR ${ESP8266_PATH}/hardware/esp8266/2.4.0/libraries/SD/src)
+set(SPI_ESP8266_DIR ${ESP8266_PATH}/hardware/esp8266/2.4.0/libraries/SPI)
+set(WIRE_ESP8266_DIR ${ESP8266_PATH}/hardware/esp8266/2.4.0/libraries/Wire)
