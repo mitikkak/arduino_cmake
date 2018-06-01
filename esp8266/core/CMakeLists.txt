@@ -67,16 +67,22 @@ set(esp8266_core_asm_sources
 )
 
 enable_language(ASM)
+###### ESP8266 GENERIC #######################################################
 add_library(${esp8266_core_asm_lib} STATIC ${esp8266_core_asm_sources})
 target_compile_options(
     ${esp8266_core_asm_lib} PRIVATE
+    ${esp8266_generic_defs}
     -g -x assembler-with-cpp
 )
+target_include_directories(
+    ${esp8266_core_asm_lib} PRIVATE
+	${esp8266_generic_path}
+)
+
 set_target_properties(
   ${esp8266_core_asm_lib} PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
 )
-
 
 add_library(${esp8266_core_c_lib} STATIC ${esp8266_core_c_sources})
 set_target_properties(
@@ -92,9 +98,68 @@ set_target_properties(
 target_compile_options(
     ${esp8266_core_c_lib} PRIVATE
     ${compiler_set_c}
+    ${esp8266_generic_defs}
+)
+target_include_directories(
+    ${esp8266_core_c_lib} PRIVATE
+	${esp8266_generic_path}
 )
 
 target_compile_options(
     ${esp8266_core_cpp_lib} PRIVATE
     ${compiler_set_cpp}
+    ${esp8266_generic_defs}
+)
+target_include_directories(
+    ${esp8266_core_cpp_lib} PRIVATE
+	${esp8266_generic_path}
+)
+
+###### ESP8266-12E #######################################################
+
+add_library(${esp8266_12e_core_asm_lib} STATIC ${esp8266_core_asm_sources})
+target_compile_options(
+    ${esp8266_12e_core_asm_lib} PRIVATE
+    ${esp8266_12e_defs}
+    -g -x assembler-with-cpp
+)
+target_include_directories(
+    ${esp8266_12e_core_asm_lib} PRIVATE
+	${esp8266_12e_path}
+)
+
+set_target_properties(
+  ${esp8266_12e_core_asm_lib} PROPERTIES
+  ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
+)
+
+add_library(${esp8266_12e_core_c_lib} STATIC ${esp8266_core_c_sources})
+set_target_properties(
+  ${esp8266_12e_core_c_lib} PROPERTIES
+  ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
+)
+add_library(${esp8266_12e_core_cpp_lib} STATIC ${esp8266_core_cpp_sources})
+set_target_properties(
+  ${esp8266_12e_core_cpp_lib} PROPERTIES
+  ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
+)
+
+target_compile_options(
+    ${esp8266_12e_core_c_lib} PRIVATE
+    ${compiler_set_c}
+    ${esp8266_12e_defs}
+)
+target_include_directories(
+    ${esp8266_12e_core_c_lib} PRIVATE
+	${esp8266_12e_path}
+)
+
+target_compile_options(
+    ${esp8266_12e_core_cpp_lib} PRIVATE
+    ${compiler_set_cpp}
+    ${esp8266_12e_defs}
+)
+target_include_directories(
+    ${esp8266_12e_core_cpp_lib} PRIVATE
+	${esp8266_generic_path}
 )

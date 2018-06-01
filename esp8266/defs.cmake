@@ -1,6 +1,7 @@
 
-add_definitions(-D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ -ffunction-sections -fdata-sections -MMD)  
-add_definitions(-DF_CPU=80000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DARDUINO=10800 -DARDUINO_ESP8266_GENERIC -DARDUINO_ARCH_ESP8266 -DARDUINO_BOARD="ESP8266_GENERIC" -DESP8266)
+set(esp8266_common_defs -D__ets__ -DICACHE_FLASH -U__STRICT_ANSI__ -ffunction-sections -fdata-sections -MMD -DF_CPU=80000000L -DLWIP_OPEN_SRC -DTCP_MSS=536 -DARDUINO=10800 -DARDUINO_ARCH_ESP8266 -DESP8266)
+set(esp8266_generic_defs ${esp8266_common_defs} -DARDUINO_ESP8266_GENERIC -DARDUINO_BOARD="ESP8266_GENERIC")
+set(esp8266_12e_defs ${esp8266_common_defs} -DARDUINO_ESP8266_NODEMCU -DARDUINO_BOARD="ESP8266_NODEMCU")
 set(compiler_set_c -c -w -Os -g -Wpointer-arith -Wno-implicit-function-declaration -Wl,-EL -fno-inline-functions -nostdlib -mlongcalls -mtext-section-literals -falign-functions=4 -std=gnu99)
 set(compiler_set_cpp -c -w -Os -g -mlongcalls -mtext-section-literals -fno-exceptions -fno-rtti -falign-functions=4 -std=c++11)
 
