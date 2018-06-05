@@ -1,0 +1,9 @@
+
+set(wifi_sources
+            ${WIFI_ESP8266_DIR}/ESP8266WiFiSTA.cpp
+            ${WIFI_ESP8266_DIR}/WiFiServer.cpp
+            ${WIFI_ESP8266_DIR}/ESP8266WiFiGeneric.cpp
+            ${WIFI_ESP8266_DIR}/ESP8266WiFi.cpp
+            ${WIFI_ESP8266_DIR}/WiFiClient.cpp
+)
+
