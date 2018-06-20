@@ -26,3 +26,7 @@ if(${ARDUINO_LIB_PATH} MATCHES .*libraries.*)
 else()
    message(FATAL_ERROR "ARDUINO_LIB_PATH environment variable missing! It should point to your arduino library root, for example /home/your_name/Arduino/libraries/")
 endif()
+
+set(ARDUINO_PINS ${ARDUINO_PATH}/hardware/arduino/avr/variants/standard)
+set(ARDUINO_WIRE_SRC ${ARDUINO_PATH}/hardware/arduino/avr/libraries/Wire/src/)
+set(ARDUINO_TIMERONE_SRC ${ARDUINO_LIB_PATH}/TimerOne/)
