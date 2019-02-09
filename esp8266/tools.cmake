@@ -8,6 +8,7 @@ find_program(ESP8266_OBJCOPY NAMES xtensa-lx106-elf-objcopy PATHS ${xtensa_bin_p
 find_program(ESP8266_OBJDUMP NAMES xtensa-lx106-elf-objdump PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
 find_program(ESP8266_RANLIB NAMES xtensa-lx106-elf-ranlib PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
 find_program(ESP8266_LD NAMES xtensa-lx106-elf-ld PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
+find_program(ESP8266_AR NAMES xtensa-lx106-elf-ar PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
 
 # Compiler suite specification
 set(CMAKE_ASM_COMPILER ${ESP8266_GCC})

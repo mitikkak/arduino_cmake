@@ -68,6 +68,7 @@ set(esp8266_core_asm_sources
 
 enable_language(ASM)
 ###### ESP8266 GENERIC #######################################################
+SET(CMAKE_ASM_CREATE_STATIC_LIBRARY "${ESP8266_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
 add_library(${esp8266_core_asm_lib} STATIC ${esp8266_core_asm_sources})
 target_compile_options(
     ${esp8266_core_asm_lib} PRIVATE
@@ -84,11 +85,13 @@ set_target_properties(
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
 )
 
+SET(CMAKE_C_ARCHIVE_CREATE "${ESP8266_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
 add_library(${esp8266_core_c_lib} STATIC ${esp8266_core_c_sources})
 set_target_properties(
   ${esp8266_core_c_lib} PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
 )
+SET(CMAKE_CXX_ARCHIVE_CREATE "${ESP8266_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
 add_library(${esp8266_core_cpp_lib} STATIC ${esp8266_core_cpp_sources})
 set_target_properties(
   ${esp8266_core_cpp_lib} PROPERTIES

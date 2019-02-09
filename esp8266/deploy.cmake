@@ -13,6 +13,6 @@ add_custom_target(upload_${NAME} COMMAND ${ESP8266_PATH}/tools/esptool/0.4.12/es
 endfunction()
 
 function(upload_esp8266_12e NAME DEPS)
-add_custom_target(upload_esp8266_12e_${NAME} COMMAND ${ESP8266_PATH}/tools/esptool/0.4.12/esptool -vv -cd nodemcu -cb 115200 -cp /dev/ttyUSB0 -ca 0x00000 -cf ${NAME}.bin 
+add_custom_target(upload_esp8266_12e_${NAME} COMMAND ${ESP8266_PATH}/tools/esptool/0.4.12/esptool -vv -cd nodemcu -cb 921600 -cp /dev/ttyUSB0 -ca 0x00000 -cf ${NAME}.bin 
                                  DEPENDS ${DEPS})
 endfunction()
