@@ -1,0 +1,5 @@
+
+set(esp32_common_defs -DESP_PLATFORM "-DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\"" -DHAVE_CONFIG_H -MMD)
+set(wroom32_defs ${esp32_common_defs} -c -DF_CPU=240000000L -DARDUINO=10808 -DARDUINO_NodeMCU_32S -DARDUINO_ARCH_ESP32 "-DARDUINO_BOARD=\"NodeMCU_32S\"" "-DARDUINO_VARIANT=\"nodemcu-32s\"" -DESP32 -DCORE_DEBUG_LEVEL=0)
+set(esp32_compiler_set_c -std=gnu99 -Os -g3 -fstack-protector -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wpointer-arith -w -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration)
+set(esp32_compiler_set_cpp -std=gnu++11 -fno-exceptions -Os -g3 -Wpointer-arith -fexceptions -fstack-protector -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -w -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wno-unused-parameter -Wno-sign-compare -fno-rtti)

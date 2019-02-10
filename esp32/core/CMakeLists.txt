@@ -1,6 +1,7 @@
 
 include(${ARDUINO_CMAKE_DIR}/esp32/paths.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp32/tools.cmake)
+include(${ARDUINO_CMAKE_DIR}/esp32/defs.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp32/core.cmake)
 
 set(esp32_core_c_sources 
@@ -41,16 +42,38 @@ set(esp32_core_cpp_sources
     ${esp32_core_path}/WString.cpp
 )
 
-#SET(CMAKE_C_ARCHIVE_CREATE "${ESP32_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
-add_library(${esp32_core_c_lib} STATIC ${esp32_core_c_sources})
+SET(CMAKE_C_ARCHIVE_CREATE "${ESP32_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
+add_library(${wroom32_core_c_lib} STATIC ${esp32_core_c_sources})
+target_compile_options(
+    ${wroom32_core_c_lib} PRIVATE
+    ${esp32_compiler_set_c}
+    ${wroom32_defs}
+)
 target_include_directories(
-    ${esp32_core_c_lib} PRIVATE
+    ${wroom32_core_c_lib} PRIVATE
     ${esp32_sdk_paths}
     ${esp32_core_path}
     ${wroom32_pins_path}
 )
-
 set_target_properties(
-  ${esp32_core_c_lib} PROPERTIES
+  ${wroom32_core_c_lib} PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
+)
+
+SET(CMAKE_CXX_ARCHIVE_CREATE "${ESP32_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
+add_library(${wroom32_core_cpp_lib} STATIC ${esp32_core_cpp_sources})
+set_target_properties(
+  ${wroom32_core_cpp_lib} PROPERTIES
+  ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
+)
+target_compile_options(
+    ${wroom32_core_cpp_lib} PRIVATE
+    ${esp32_compiler_set_cpp}
+    ${wroom32_defs}
+)
+target_include_directories(
+    ${wroom32_core_cpp_lib} PRIVATE
+    ${esp32_sdk_paths}
+    ${esp32_core_path}
+    ${wroom32_pins_path}
 )
