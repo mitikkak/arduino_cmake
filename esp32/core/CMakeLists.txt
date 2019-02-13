@@ -11,6 +11,7 @@ set(esp32_core_c_sources
     ${esp32_core_path}/esp32-hal-gpio.c
     ${esp32_core_path}/esp32-hal-dac.c
     ${esp32_core_path}/esp32-hal-bt.c
+    ${esp32_core_path}/esp32-hal-cpu.c
     ${esp32_core_path}/wiring_pulse.c
     ${esp32_core_path}/esp32-hal-touch.c
     ${esp32_core_path}/libb64/cdecode.c
