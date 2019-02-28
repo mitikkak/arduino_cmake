@@ -29,4 +29,5 @@ endif()
 
 set(ARDUINO_PINS ${ARDUINO_PATH}/hardware/arduino/avr/variants/standard)
 set(ARDUINO_WIRE_SRC ${ARDUINO_PATH}/hardware/arduino/avr/libraries/Wire/src/)
+set(ARDUINO_SPI_SRC ${ARDUINO_PATH}/hardware/arduino/avr/libraries/SPI/src/)
 set(ARDUINO_TIMERONE_SRC ${ARDUINO_LIB_PATH}/TimerOne/)
