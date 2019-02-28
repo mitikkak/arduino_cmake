@@ -14,4 +14,8 @@ set(wire_sources
   ${WIRE_ESP8266_DIR}/Wire.cpp
 )
 
+set(spi_sources
+ ${SPI_ESP8266_DIR}/SPI.cpp
+)
+
 
