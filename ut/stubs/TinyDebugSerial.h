@@ -3,10 +3,10 @@
 
 #include <string>
 
-static constexpr unsigned HEX = 0;
 
 class TinyDebugSerial
 {
+	static constexpr unsigned HEX = 0;
     std::string buffer;
 public:
     TinyDebugSerial()

@@ -4,8 +4,8 @@
 //#include <assert.h>
 #include "gtest/gtest.h"
 #include <cstdint>
-
-#include "TinyDebugSerial.h"
+//#include "TinyDebugSerial.h"
+#include "PinEvents.h"
 
 typedef char byte;
 
@@ -32,7 +32,7 @@ extern unsigned long millis();
 extern unsigned long micros();
 extern void delay(int const);
 
-extern TinyDebugSerial Serial;
+//extern TinyDebugSerial Serial;
 
 #define PI 3.1415926535897932384626433832795
 

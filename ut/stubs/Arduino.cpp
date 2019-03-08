@@ -20,6 +20,10 @@ void digitalWrite(unsigned pin, unsigned state)
 {
     assert(pin < Arduino::numPins);
     pins[pin] = state;
+    if (receivedEvents.on())
+    {
+    	receivedEvents.add(PinEvent(pin, state, Arduino::timeNow));
+    }
 }
 unsigned digitalRead(unsigned pin)
 {
@@ -38,11 +42,11 @@ unsigned long micros()
 {
     return millis()*1000;
 }
-void delay(int const)
+void delay(int const milliSecs)
 {
-
+	Arduino::timeNow += milliSecs;
 }
 unsigned long Arduino::timeNow = 0;
 unsigned long Arduino::timeStep = 1;
 
-TinyDebugSerial Serial;
+//TinyDebugSerial Serial;
