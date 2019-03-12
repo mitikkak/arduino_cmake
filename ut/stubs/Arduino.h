@@ -5,6 +5,7 @@
 #include "gtest/gtest.h"
 #include <cstdint>
 //#include "TinyDebugSerial.h"
+#include "Serial.h"
 #include "PinEvents.h"
 
 typedef char byte;
@@ -14,6 +15,7 @@ static constexpr unsigned HIGH = 1;
 static constexpr unsigned OUTPUT = 2;
 static constexpr unsigned INPUT = 3;
 static constexpr unsigned RISING = 4;
+static constexpr unsigned INPUT_PULLUP = 5;
 
 namespace Arduino {
 
