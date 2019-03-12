@@ -11,6 +11,7 @@ unsigned Arduino::ledState(unsigned const pin)
 void Arduino::reset()
 {
     memset(&pins, LOW, sizeof(pins));
+    timeNow = 0;
 }
 void pinMode(const int pin, const int mode)
 {

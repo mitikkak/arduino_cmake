@@ -15,9 +15,7 @@ void ReceivedEvents::add(const PinEvent& evt)
 }
 void ReceivedEvents::start()
 {
-	printf("ReceivedEvents::start %ld \n", receivedEvents.size());
 	receivedEvents.clear();
-	printf("ReceivedEvents::start %ld \n", receivedEvents.size());
 	started = true;
 }
 void ReceivedEvents::stop()
@@ -36,8 +34,9 @@ void ReceivedEvents::verify(std::vector<PinEvent>& expectedEvents) const
 	{
 		const PinEvent& rcvEvt = receivedEvents[i];
 		const PinEvent& expEvt = expectedEvents[i];
-		EXPECT_EQ(expEvt.pin(), rcvEvt.pin());
-		EXPECT_EQ(expEvt.state(), rcvEvt.state());
-		EXPECT_EQ(expEvt.startTime(), rcvEvt.startTime());
+//		printf("[%d] rcvEvt [%d,%d,%d] expEvt [%d,%d,%d] \n", i, rcvEvt.pin(), rcvEvt.state(), rcvEvt.startTime(), expEvt.pin(), expEvt.state(), expEvt.startTime());
+		ASSERT_EQ(expEvt.pin(), rcvEvt.pin()) << "Pin differs at " << i;
+		ASSERT_EQ(expEvt.state(), rcvEvt.state()) << "State differs at " << i;
+		ASSERT_EQ(expEvt.startTime(), rcvEvt.startTime()) << "StartTime differs at " << i;
 	}
 }
