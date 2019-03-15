@@ -34,6 +34,7 @@ extern unsigned long millis();
 extern unsigned long micros();
 extern void delay(int const);
 
+#define PROGMEM
 //extern TinyDebugSerial Serial;
 
 #define PI 3.1415926535897932384626433832795
