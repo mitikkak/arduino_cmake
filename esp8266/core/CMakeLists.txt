@@ -4,41 +4,39 @@ include(${ARDUINO_CMAKE_DIR}/esp8266/tools.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp8266/defs.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp8266/core.cmake)
 
-set(core_src_root ${ESP8266_PATH}/hardware/esp8266/2.4.0/cores/esp8266)
+set(core_src_root ${ESP8266_PATH}/cores/esp8266)
 set(lib64_path ${core_src_root}/libb64)
 set(spiffs_path ${core_src_root}/spiffs)
 set(umm_malloc_path ${core_src_root}/umm_malloc)
-set(esp8266_core_c_sources
-                         ${core_src_root}/cont_util.c
-                         ${core_src_root}/core_esp8266_eboot_command.c
-                         ${core_src_root}/core_esp8266_flash_utils.c
-                         ${core_src_root}/core_esp8266_i2s.c
-                         ${core_src_root}/core_esp8266_noniso.c
-                         ${core_src_root}/core_esp8266_phy.c
-                         ${core_src_root}/core_esp8266_postmortem.c
-                         ${core_src_root}/core_esp8266_si2c.c
-                         ${core_src_root}/core_esp8266_timer.c
-                         ${core_src_root}/core_esp8266_wiring.c
-                         ${core_src_root}/core_esp8266_wiring_analog.c
-                         ${core_src_root}/core_esp8266_wiring_digital.c
-                         ${core_src_root}/core_esp8266_wiring_pulse.c
-                         ${core_src_root}/core_esp8266_wiring_pwm.c
-                         ${core_src_root}/core_esp8266_wiring_shift.c
-                         ${core_src_root}/heap.c
-                         ${core_src_root}/libc_replacements.c
-                         ${core_src_root}/sntp-lwip2.c
-                         ${core_src_root}/time.c
-                         ${core_src_root}/uart.c
-                         ${lib64_path}/cdecode.c
-                         ${lib64_path}/cencode.c
-                         ${spiffs_path}/spiffs_cache.c
-                         ${spiffs_path}/spiffs_check.c
-                         ${spiffs_path}/spiffs_gc.c
-                         ${spiffs_path}/spiffs_hydrogen.c
-                         ${spiffs_path}/spiffs_nucleus.c
-                         ${umm_malloc_path}/umm_malloc.c
-)
 set(esp8266_core_cpp_sources
+                         ${core_src_root}/core_esp8266_wiring.cpp
+                         ${core_src_root}/core_esp8266_wiring_analog.cpp
+                         ${core_src_root}/core_esp8266_wiring_digital.cpp
+                         ${core_src_root}/core_esp8266_wiring_pulse.cpp
+                         ${core_src_root}/core_esp8266_wiring_pwm.cpp
+                         ${core_src_root}/core_esp8266_wiring_shift.cpp
+                         ${core_src_root}/heap.cpp
+                         ${core_src_root}/libc_replacements.cpp
+                         ${core_src_root}/sntp-lwip2.cpp
+                         ${core_src_root}/time.cpp
+                         ${core_src_root}/uart.cpp
+                         ${lib64_path}/cdecode.cpp
+                         ${lib64_path}/cencode.cpp
+                         ${spiffs_path}/spiffs_cache.cpp
+                         ${spiffs_path}/spiffs_check.cpp
+                         ${spiffs_path}/spiffs_gc.cpp
+                         ${spiffs_path}/spiffs_hydrogen.cpp
+                         ${spiffs_path}/spiffs_nucleus.cpp
+                         ${umm_malloc_path}/umm_malloc.cpp
+                         ${core_src_root}/core_esp8266_timer.cpp
+                         ${core_src_root}/core_esp8266_si2c.cpp
+                         ${core_src_root}/core_esp8266_postmortem.cpp
+                         ${core_src_root}/cont_util.cpp
+                         ${core_src_root}/core_esp8266_flash_utils.cpp
+                         ${core_src_root}/core_esp8266_eboot_command.cpp
+                         ${core_src_root}/core_esp8266_i2s.cpp
+                         ${core_src_root}/core_esp8266_noniso.cpp
+                         ${core_src_root}/core_esp8266_phy.cpp
                          ${core_src_root}/Esp.cpp
                          ${core_src_root}/FS.cpp
                          ${core_src_root}/FunctionalInterrupt.cpp
@@ -58,7 +56,7 @@ set(esp8266_core_cpp_sources
                          ${core_src_root}/cbuf.cpp
                          ${core_src_root}/core_esp8266_main.cpp
                          ${core_src_root}/debug.cpp
-                         ${core_src_root}/pgmspace.cpp
+                         #${core_src_root}/pgmspace.cpp
                          ${core_src_root}/spiffs_api.cpp
                          ${core_src_root}/spiffs_hal.cpp
 )
@@ -85,27 +83,11 @@ set_target_properties(
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
 )
 
-SET(CMAKE_C_ARCHIVE_CREATE "${ESP8266_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
-add_library(${esp8266_core_c_lib} STATIC ${esp8266_core_c_sources})
-set_target_properties(
-  ${esp8266_core_c_lib} PROPERTIES
-  ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
-)
 SET(CMAKE_CXX_ARCHIVE_CREATE "${ESP8266_AR} cru <TARGET> <LINK_FLAGS> <OBJECTS>")
 add_library(${esp8266_core_cpp_lib} STATIC ${esp8266_core_cpp_sources})
 set_target_properties(
   ${esp8266_core_cpp_lib} PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
-)
-
-target_compile_options(
-    ${esp8266_core_c_lib} PRIVATE
-    ${compiler_set_c}
-    ${esp8266_generic_defs}
-)
-target_include_directories(
-    ${esp8266_core_c_lib} PRIVATE
-	${esp8266_generic_path}
 )
 
 target_compile_options(
@@ -136,25 +118,10 @@ set_target_properties(
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
 )
 
-add_library(${esp8266_12e_core_c_lib} STATIC ${esp8266_core_c_sources})
-set_target_properties(
-  ${esp8266_12e_core_c_lib} PROPERTIES
-  ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
-)
 add_library(${esp8266_12e_core_cpp_lib} STATIC ${esp8266_core_cpp_sources})
 set_target_properties(
   ${esp8266_12e_core_cpp_lib} PROPERTIES
   ARCHIVE_OUTPUT_DIRECTORY ${core_output_folder}
-)
-
-target_compile_options(
-    ${esp8266_12e_core_c_lib} PRIVATE
-    ${compiler_set_c}
-    ${esp8266_12e_defs}
-)
-target_include_directories(
-    ${esp8266_12e_core_c_lib} PRIVATE
-	${esp8266_12e_path}
 )
 
 target_compile_options(

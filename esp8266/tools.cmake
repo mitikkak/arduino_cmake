@@ -1,7 +1,6 @@
 
 # Find esp8266 SDK delivered programs
-set(xtensa_bin_path ${ESP8266_PATH}/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/bin)
-#set(xtensa_bin_path ${ESP8266_PATH}/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb9-2/xtensa-lx106-elf/bin)
+set(xtensa_bin_path ${ESP8266_PATH}/tools/xtensa-lx106-elf/bin)
 find_program(ESP8266_GCC NAMES xtensa-lx106-elf-gcc PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
 find_program(ESP8266_CXX NAMES xtensa-lx106-elf-g++ PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
 find_program(ESP8266_OBJCOPY NAMES xtensa-lx106-elf-objcopy PATHS ${xtensa_bin_path} NO_DEFAULT_PATH)
