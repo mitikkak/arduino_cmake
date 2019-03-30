@@ -17,6 +17,7 @@ static constexpr unsigned INPUT = 3;
 static constexpr unsigned RISING = 4;
 static constexpr unsigned INPUT_PULLUP = 5;
 
+static constexpr unsigned LED_BUILTIN = 13;
 namespace Arduino {
 
 static constexpr unsigned numPins = 14;
@@ -34,6 +35,9 @@ extern unsigned long millis();
 extern unsigned long micros();
 extern void delay(int const);
 
+#ifndef F
+#define F
+#endif
 #define PROGMEM
 //extern TinyDebugSerial Serial;
 
