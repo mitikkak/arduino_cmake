@@ -25,8 +25,10 @@ function(build_targets_espwroom32 sources_to_build external_include_dirs)
         ${esp32_core_path}
         ${wroom32_pins_path}
     )
-    partitions(${PROJECT_NAME})
+    set(elf_to_bin_wroom32_prefix elf_to_bin_wroom32_)
+    set(partitions_wroom32_prefix partitions_)
     elf_to_bin_wroom32(${PROJECT_NAME})
-    upload_wroom32(${PROJECT_NAME})
+    partitions(${PROJECT_NAME} ${elf_to_bin_wroom32_prefix}${PROJECT_NAME})
+    upload_wroom32(${PROJECT_NAME} ${partitions_wroom32_prefix}${PROJECT_NAME})
 
 endfunction(build_targets_espwroom32)
