@@ -1,0 +1,24 @@
+
+set(esp32_ble_sources
+    ${ESP32_BLE_SRC_DIR}/BLEUUID.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEDevice.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEClient.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEScan.cpp
+    ${ESP32_BLE_SRC_DIR}/FreeRTOS.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEAddress.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEAdvertisedDevice.cpp
+    ${ESP32_BLE_SRC_DIR}/BLERemoteService.cpp
+    ${ESP32_BLE_SRC_DIR}/BLERemoteCharacteristic.cpp
+    ${ESP32_BLE_SRC_DIR}/BLERemoteDescriptor.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEUtils.cpp
+    ${ESP32_BLE_SRC_DIR}/GeneralUtils.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEServer.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEServiceMap.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEService.cpp
+    ${ESP32_BLE_SRC_DIR}/BLECharacteristicMap.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEAdvertising.cpp
+    ${ESP32_BLE_SRC_DIR}/BLECharacteristic.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEValue.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEDescriptorMap.cpp
+    ${ESP32_BLE_SRC_DIR}/BLEDescriptor.cpp
+)
