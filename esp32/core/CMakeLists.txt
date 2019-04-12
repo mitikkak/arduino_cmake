@@ -8,6 +8,7 @@ set(esp32_core_c_sources
     ${esp32_core_path}/esp32-hal-ledc.c
     ${esp32_core_path}/esp32-hal-i2c.c
     ${esp32_core_path}/esp32-hal-uart.c
+    ${esp32_core_path}/esp32-hal-cpu.c
     ${esp32_core_path}/esp32-hal-gpio.c
     ${esp32_core_path}/esp32-hal-dac.c
     ${esp32_core_path}/esp32-hal-bt.c
