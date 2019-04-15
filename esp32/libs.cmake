@@ -21,4 +21,5 @@ set(esp32_ble_sources
     ${ESP32_BLE_SRC_DIR}/BLEValue.cpp
     ${ESP32_BLE_SRC_DIR}/BLEDescriptorMap.cpp
     ${ESP32_BLE_SRC_DIR}/BLEDescriptor.cpp
+    ${ESP32_BLE_SRC_DIR}/BLE2902.cpp
 )
