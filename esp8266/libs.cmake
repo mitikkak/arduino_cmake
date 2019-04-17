@@ -22,4 +22,8 @@ set(spi_sources
  ${SPI_ESP8266_DIR}/SPI.cpp
 )
 
+set(esp8266_mdns_sources
+    ${MDNS_ESP8266_DIR}/ESP8266mDNS.cpp
+)
+
 
