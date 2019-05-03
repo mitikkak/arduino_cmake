@@ -23,3 +23,19 @@ set(esp32_ble_sources
     ${ESP32_BLE_SRC_DIR}/BLEDescriptor.cpp
     ${ESP32_BLE_SRC_DIR}/BLE2902.cpp
 )
+
+set(esp32_wire_sources
+    ${ESP32_WIRE_SRC_DIR}/Wire.cpp
+)
+set(esp32_spi_sources
+    ${ESP32_SPI_SRC_DIR}/SPI.cpp
+)
+set(esp32_fs_sources
+    ${ESP32_FS_SRC_DIR}/FS.cpp
+    ${ESP32_FS_SRC_DIR}/vfs_api.cpp
+)
+set(esp32_sd_sources
+    ${ESP32_SD_SRC_DIR}/SD.cpp
+    ${ESP32_SD_SRC_DIR}/sd_diskio.cpp
+    ${ESP32_SD_SRC_DIR}/sd_diskio_crc.c
+)

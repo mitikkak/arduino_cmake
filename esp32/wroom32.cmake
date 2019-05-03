@@ -1,5 +1,5 @@
 include(${ARDUINO_CMAKE_DIR}/esp32/paths.cmake)
-#include(${ARDUINO_CMAKE_DIR}/esp32/libs.cmake)
+include(${ARDUINO_CMAKE_DIR}/esp32/libs.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp32/tools.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp32/defs.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp32/deploy.cmake)
