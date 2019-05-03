@@ -61,7 +61,10 @@ set(esp32_sdk_paths
 set(esp32_core_path ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/cores/esp32)
 set(wroom32_pins_path ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/variants/nodemcu-32s)
 
-set(ESP32_BLE_SRC_DIR ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/libraries/BLE/src)
-    
+set(ESP32_BLE_SRC_DIR ${ESP32_PATH}/libraries/BLE/src)
+set(ESP32_WIRE_SRC_DIR ${ESP32_PATH}/libraries/Wire/src)
+set(ESP32_SD_SRC_DIR ${ESP32_PATH}/libraries/SD/src)
+set(ESP32_FS_SRC_DIR ${ESP32_PATH}/libraries/FS/src)
+set(ESP32_SPI_SRC_DIR ${ESP32_PATH}/libraries/SPI/src)
     
     
