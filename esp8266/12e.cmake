@@ -3,6 +3,7 @@ include(${ARDUINO_CMAKE_DIR}/esp8266/libs.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp8266/tools.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp8266/defs.cmake)
 include(${ARDUINO_CMAKE_DIR}/esp8266/deploy.cmake)
+include(${ARDUINO_CMAKE_DIR}/esp8266/env/wifi.cmake)
 
 function(build_targets_esp8266_12e sources_to_build external_include_dirs)
 #message("Project: " ${PROJECT_NAME} " ext_sources:" ${ext_sources} " external_include_dirs:" ${external_include_dirs})
