@@ -25,6 +25,8 @@ set(esp32_core_c_sources
     ${esp32_core_path}/esp32-hal-spi.c
     ${esp32_core_path}/esp32-hal-time.c
     ${esp32_core_path}/esp32-hal-sigmadelta.c
+    # with newer SDK
+    #${esp32_core_path}/esp32-hal-cpu.c
 )
 set(esp32_core_cpp_sources
     ${esp32_core_path}/StreamString.cpp

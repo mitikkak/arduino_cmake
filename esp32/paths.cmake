@@ -25,7 +25,8 @@ set(esp32_sdk_paths
     ${ESP32_SDK_INC_DIR}/esp32 
     ${ESP32_SDK_INC_DIR}/esp_adc_cal 
     ${ESP32_SDK_INC_DIR}/esp_http_client 
-    ${ESP32_SDK_INC_DIR}/esp-tls 
+    ${ESP32_SDK_INC_DIR}/esp-tls
+    ${ESP32_SDK_INC_DIR}/esp_event
     ${ESP32_SDK_INC_DIR}/ethernet 
     ${ESP32_SDK_INC_DIR}/fatfs 
     ${ESP32_SDK_INC_DIR}/freertos 
@@ -67,5 +68,6 @@ set(ESP32_WIRE_SRC_DIR ${ESP32_LIB_PATH}/Wire/src)
 set(ESP32_SD_SRC_DIR ${ESP32_LIB_PATH}/SD/src)
 set(ESP32_FS_SRC_DIR ${ESP32_LIB_PATH}/FS/src)
 set(ESP32_SPI_SRC_DIR ${ESP32_LIB_PATH}/SPI/src)
-    
+set(ESP32_WIFI_SRC_DIR ${ESP32_LIB_PATH}/WiFi/src)
+set(ESP32_WIFI_CLIENT_SECURE_SRC_DIR ${ESP32_LIB_PATH}/WiFiClientSecure/src)
     

@@ -39,3 +39,12 @@ set(esp32_sd_sources
     ${ESP32_SD_SRC_DIR}/sd_diskio.cpp
     ${ESP32_SD_SRC_DIR}/sd_diskio_crc.c
 )
+set(esp32_wifi_sources
+    ${ESP32_WIFI_SRC_DIR}/WiFi.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiMulti.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiSTA.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiScan.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiGeneric.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiServer.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiClient.cpp
+)
