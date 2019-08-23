@@ -26,4 +26,12 @@ set(esp8266_mdns_sources
     ${MDNS_ESP8266_DIR}/ESP8266mDNS.cpp
 )
 
+set(esp8266_sd_sources
+            ${SDFAT_ESP8266_DIR}/SD.cpp
+            ${SDFAT_ESP8266_DIR}/File.cpp
+            ${SDFAT_ESP8266_DIR}/utility/SdVolume.cpp
+            ${SDFAT_ESP8266_DIR}/utility/SdFile.cpp
+            ${SDFAT_ESP8266_DIR}/utility/Sd2Card.cpp
+)
+
 
