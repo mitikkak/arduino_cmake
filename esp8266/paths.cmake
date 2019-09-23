@@ -13,7 +13,7 @@ else()
    message(FATAL_ERROR "ESP8266_PATH environment variable missing! It should point to root of arduino installation, for example /home/your_name/arduino-1.6.12/")
 endif()
 
-set(esp8266_version_root ${ESP8266_PATH}/hardware/esp8266/2.4.0)
+set(esp8266_version_root ${ESP8266_PATH})
 set(esp8266_generic_path ${esp8266_version_root}/variants/generic)
 set(esp8266_12e_path ${esp8266_version_root}/variants/nodemcu)
 
