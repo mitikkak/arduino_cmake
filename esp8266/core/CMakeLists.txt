@@ -9,7 +9,8 @@ set(lib64_path ${core_src_root}/libb64)
 set(spiffs_path ${core_src_root}/spiffs)
 set(umm_malloc_path ${core_src_root}/umm_malloc)
 set(esp8266_core_cpp_sources
-${core_src_root}/cont_util.cpp
+                         ${core_src_root}/cont_util.cpp
+                         ${core_src_root}/core_esp8266_app_entry_noextra4k.cpp
                          ${core_src_root}/core_esp8266_eboot_command.cpp
                          ${core_src_root}/core_esp8266_flash_utils.cpp
                          ${core_src_root}/core_esp8266_i2s.cpp
@@ -17,6 +18,7 @@ ${core_src_root}/cont_util.cpp
                          ${core_src_root}/core_esp8266_phy.cpp
                          ${core_src_root}/core_esp8266_postmortem.cpp
                          ${core_src_root}/core_esp8266_si2c.cpp
+                         ${core_src_root}/core_esp8266_sigma_delta.cpp
                          ${core_src_root}/core_esp8266_timer.cpp
                          ${core_src_root}/core_esp8266_wiring.cpp
                          ${core_src_root}/core_esp8266_wiring_analog.cpp
@@ -24,12 +26,15 @@ ${core_src_root}/cont_util.cpp
                          ${core_src_root}/core_esp8266_wiring_pulse.cpp
                          ${core_src_root}/core_esp8266_wiring_pwm.cpp
                          ${core_src_root}/core_esp8266_wiring_shift.cpp
+                         ${core_src_root}/core_esp8266_waveform.cpp
                          ${core_src_root}/heap.cpp
                          ${core_src_root}/libc_replacements.cpp
                          ${core_src_root}/sntp-lwip2.cpp
                          ${core_src_root}/time.cpp
                          ${core_src_root}/uart.cpp
                          ${core_src_root}/Esp.cpp
+                         ${core_src_root}/Esp-frag.cpp
+                         ${core_src_root}/Esp-version.cpp
                          ${core_src_root}/FS.cpp
                          ${core_src_root}/FunctionalInterrupt.cpp
                          ${core_src_root}/HardwareSerial.cpp
@@ -37,6 +42,7 @@ ${core_src_root}/cont_util.cpp
                          ${core_src_root}/MD5Builder.cpp
                          ${core_src_root}/Print.cpp
                          ${core_src_root}/Schedule.cpp
+                         ${core_src_root}/ScheduledFunctions.cpp
                          ${core_src_root}/Stream.cpp
                          ${core_src_root}/StreamString.cpp
                          ${core_src_root}/Tone.cpp
@@ -48,6 +54,9 @@ ${core_src_root}/cont_util.cpp
                          ${core_src_root}/cbuf.cpp
                          ${core_src_root}/core_esp8266_main.cpp
                          ${core_src_root}/debug.cpp
+                         ${core_src_root}/gdb_hooks.cpp
+                         ${core_src_root}/sqrt32.cpp
+                         ${core_src_root}/StackThunk.cpp
                          #${core_src_root}/pgmspace.cpp
                          ${core_src_root}/spiffs_api.cpp
                          #${core_src_root}/spiffs_hal.cpp
@@ -71,7 +80,7 @@ add_library(${esp8266_core_asm_lib} STATIC ${esp8266_core_asm_sources})
 target_compile_options(
     ${esp8266_core_asm_lib} PRIVATE
     ${esp8266_generic_defs}
-    -g -x assembler-with-cpp
+    ${esp8266_assembler_defs}
 )
 target_include_directories(
     ${esp8266_core_asm_lib} PRIVATE
