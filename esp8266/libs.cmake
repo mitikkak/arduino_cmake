@@ -24,6 +24,12 @@ set(spi_sources
 
 set(esp8266_mdns_sources
     ${MDNS_ESP8266_DIR}/ESP8266mDNS.cpp
+    ${MDNS_ESP8266_DIR}/ESP8266mDNS_Legacy.cpp
+    ${MDNS_ESP8266_DIR}/LEAmDNS.cpp
+    ${MDNS_ESP8266_DIR}/LEAmDNS_Control.cpp
+    ${MDNS_ESP8266_DIR}/LEAmDNS_Helpers.cpp
+    ${MDNS_ESP8266_DIR}/LEAmDNS_Structs.cpp
+    ${MDNS_ESP8266_DIR}/LEAmDNS_Transfer.cpp
 )
 
 set(esp8266_sd_sources

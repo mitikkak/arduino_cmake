@@ -59,7 +59,7 @@ set(esp8266_core_cpp_sources
                          ${core_src_root}/StackThunk.cpp
                          #${core_src_root}/pgmspace.cpp
                          ${core_src_root}/spiffs_api.cpp
-                         #${core_src_root}/spiffs_hal.cpp
+                         ${core_src_root}/spiffs_hal.cpp
                          ${lib64_path}/cdecode.cpp
                          ${lib64_path}/cencode.cpp
                          ${spiffs_path}/spiffs_cache.cpp
