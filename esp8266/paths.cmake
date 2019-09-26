@@ -29,7 +29,9 @@ include_directories(${ESP8266_PATH}/tools/xtensa-lx106-elf-gcc/1.20.0-26-gb404fb
 )
 
 set(esp8266_libraries ${esp8266_version_root}/libraries)
-set(SDFAT_ESP8266_DIR ${esp8266_libraries}/SD/src)
+set(SD_ESP8266_DIR ${esp8266_libraries}/SD/src)
+set(SDFS_ESP8266_DIR ${esp8266_libraries}/SDFS/src)
+set(SDFAT_ESP8266_DIR ${esp8266_libraries}/ESP8266SdFat/src)
 set(SPI_ESP8266_DIR ${esp8266_libraries}/SPI)
 set(WIRE_ESP8266_DIR ${esp8266_libraries}/Wire)
 set(WIFI_ESP8266_DIR ${esp8266_libraries}/ESP8266WiFi/src)

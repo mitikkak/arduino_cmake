@@ -18,9 +18,10 @@ set(wire_sources
   ${WIRE_ESP8266_DIR}/Wire.cpp
 )
 
-set(spi_sources
+set(esp8266_spi_sources
  ${SPI_ESP8266_DIR}/SPI.cpp
 )
+set(spi_sources ${esp8266_spi_sources})
 
 set(esp8266_mdns_sources
     ${MDNS_ESP8266_DIR}/ESP8266mDNS.cpp
@@ -33,11 +34,22 @@ set(esp8266_mdns_sources
 )
 
 set(esp8266_sd_sources
-            ${SDFAT_ESP8266_DIR}/SD.cpp
-            ${SDFAT_ESP8266_DIR}/FatLib/FatFile.cpp
-            ${SDFAT_ESP8266_DIR}/utility/SdVolume.cpp
-            ${SDFAT_ESP8266_DIR}/utility/SdFile.cpp
-            ${SDFAT_ESP8266_DIR}/utility/Sd2Card.cpp
+#            ${SDFAT_ESP8266_DIR}/SD.cpp
+#            ${SDFAT_ESP8266_DIR}/FatLib/FatFile.cpp
+#            ${SDFAT_ESP8266_DIR}/utility/SdVolume.cpp
+#            ${SDFAT_ESP8266_DIR}/utility/SdFile.cpp
+#            ${SDFAT_ESP8266_DIR}/utility/Sd2Card.cpp
 )
 
+set(esp8266_sdfs_sources
+   ${SDFS_ESP8266_DIR}/SDFS.cpp
+)
+set(esp8266_sdfat_sources
+   ${SDFAT_ESP8266_DIR}/FatLib/FatFile.cpp
+   ${SDFAT_ESP8266_DIR}/FatLib/FatVolume.cpp
+   ${SDFAT_ESP8266_DIR}/FatLib/FatFileSFN.cpp
+   ${SDFAT_ESP8266_DIR}/FatLib/FatFileLFN.cpp
+   ${SDFAT_ESP8266_DIR}/SdCard/SdSpiCard.cpp
+   ${SDFAT_ESP8266_DIR}/SpiDriver/SdSpiESP8266.cpp
+)
 
