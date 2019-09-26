@@ -58,4 +58,6 @@ set(esp8266_sd_all_sources
     ${esp8266_sdfs_sources}
     ${esp8266_sdfat_sources}
 )
-
+set(esp8266_sw_serial_sources
+   ${SW_SERIAL_ESP8266_SRC}/SoftwareSerial.cpp
+)
