@@ -9,7 +9,7 @@ set(compiler_set_cpp -c -w -Os -g -mlongcalls -mtext-section-literals -fno-excep
 set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")   # remove -rdynamic for C
 set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "") # remove -rdynamic for CXX
 
-include(${ARDUINO_CMAKE_DIR}/esp8266/core.cmake)
+include(${ARDUINO_CMAKE_DIR}/esp8266/${ARDUINO_VERSION}/core.cmake)
 set(core_libraries "${core_output_folder}/lib${esp8266_core_cpp_lib}.a ${core_output_folder}/lib${esp8266_core_asm_lib}.a")
 set(core_12e_libraries "${core_output_folder}/lib${esp8266_12e_core_cpp_lib}.a ${core_output_folder}/lib${esp8266_12e_core_asm_lib}.a")
 set(esp8266_sdk_libs -lhal -lphy -lpp -lnet80211 -llwip2-536-feat -lwpa -lcrypto -lmain -lwps -laxtls -lbearssl -lespnow -lsmartconfig -lairkiss -lwpa2 -lstdc++ -lm -lc -lgcc)
