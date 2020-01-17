@@ -34,4 +34,6 @@ set(esp8266_sd_sources
             ${SDFAT_ESP8266_DIR}/utility/Sd2Card.cpp
 )
 
+set(esp8266_dns_server_sources ${DNS_SERVER_ESP8266_DIR}/DNSServer.cpp
+)
 
