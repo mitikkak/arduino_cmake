@@ -48,7 +48,11 @@ set(esp32_wifi_sources
     ${ESP32_WIFI_SRC_DIR}/WiFiServer.cpp
     ${ESP32_WIFI_SRC_DIR}/WiFiClient.cpp
     ${ESP32_WIFI_SRC_DIR}/WiFiAP.cpp
+    ${ESP32_WIFI_SRC_DIR}/WiFiUdp.cpp
 )
 set(esp32_async_udp_sources
     ${ESP32_ASYNC_UDP_SRC_DIR}/AsyncUDP.cpp
+)
+set(esp32_dns_server_sources
+    ${ESP32_DNS_SERVER_SRC_DIR}/DNSServer.cpp
 )
