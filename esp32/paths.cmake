@@ -12,7 +12,7 @@ else()
    message(FATAL_ERROR "ESP32_PATH variable missing!")
 endif()
 
-set(ESP32_SDK_INC_DIR ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/tools/sdk/include)
+set(ESP32_SDK_INC_DIR ${ESP32_PATH}/tools/sdk/include)
 set(esp32_sdk_paths
     ${ESP32_SDK_INC_DIR}/config
     ${ESP32_SDK_INC_DIR}/bluedroid 
@@ -27,6 +27,7 @@ set(esp32_sdk_paths
     ${ESP32_SDK_INC_DIR}/esp_http_client 
     ${ESP32_SDK_INC_DIR}/esp-tls
     ${ESP32_SDK_INC_DIR}/esp_event
+    ${ESP32_SDK_INC_DIR}/esp_ringbuf
     ${ESP32_SDK_INC_DIR}/ethernet 
     ${ESP32_SDK_INC_DIR}/fatfs 
     ${ESP32_SDK_INC_DIR}/freertos 
@@ -59,9 +60,9 @@ set(esp32_sdk_paths
     ${ESP32_SDK_INC_DIR}/wpa_supplicant
 )
 
-set(esp32_core_path ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/cores/esp32)
-set(wroom32_pins_path ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/variants/nodemcu-32s)
-set(ESP32_LIB_PATH ${ESP32_PATH}/hardware/esp32/1.0.0-rc4/libraries)
+set(esp32_core_path ${ESP32_PATH}/cores/esp32)
+set(wroom32_pins_path ${ESP32_PATH}/variants/nodemcu-32s)
+set(ESP32_LIB_PATH ${ESP32_PATH}/libraries)
 
 set(ESP32_BLE_SRC_DIR ${ESP32_LIB_PATH}/BLE/src)
 set(ESP32_WIRE_SRC_DIR ${ESP32_LIB_PATH}/Wire/src)

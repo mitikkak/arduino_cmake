@@ -7,7 +7,7 @@ set(esp32_compiler_set_cpp -std=gnu++11 -fno-exceptions -Os -g3 -Wpointer-arith 
 set(CMAKE_SHARED_LIBRARY_LINK_C_FLAGS "")   # remove -rdynamic for C
 set(CMAKE_SHARED_LIBRARY_LINK_CXX_FLAGS "") # remove -rdynamic for CXX
 
-set(wroom32_linker_options_set1 "-nostdlib -L${ESP32_PATH}/hardware/esp32/1.0.0-rc4/tools/sdk/lib -L${ESP32_PATH}/hardware/esp32/1.0.0-rc4/tools/sdk/ld -T esp32_out.ld -T esp32.common.ld -T esp32.rom.ld -T esp32.peripherals.ld -T esp32.rom.spiram_incompatible_fns.ld -u ld_include_panic_highint_hdl -u call_user_start_cpu0 -Wl,--gc-sections -Wl,-static -Wl,--undefined=uxTopUsedPriority -u __cxa_guard_dummy -u __cxx_fatal_exception")
+set(wroom32_linker_options_set1 "-nostdlib -L${ESP32_PATH}/tools/sdk/lib -L${ESP32_PATH}/tools/sdk/ld  -T esp32_out.ld -T esp32.project.ld -T esp32.rom.ld -T esp32.peripherals.ld -T esp32.rom.libgcc.ld -T esp32.rom.spiram_incompatible_fns.ld -u ld_include_panic_highint_hdl -u call_user_start_cpu0 -Wl,--gc-sections -Wl,-static -Wl,--undefined=uxTopUsedPriority -u __cxa_guard_dummy -u __cxx_fatal_exception")
 set(core_output_folder ${CMAKE_BINARY_DIR}/esp32/core)
 set(core_libraries "${core_output_folder}/libwroom32_core_c.a ${core_output_folder}/libwroom32_core_cpp.a")
 set(sdk_libs
@@ -71,7 +71,8 @@ set(sdk_libs
     -ljson
     -lstdc++
     #with newer SDK
-    #-lesp_ringbuf
+    -lesp_ringbuf
+    -lefuse
 )
 set(wroom32_linker_options_set2 "-Wl,--start-group ${core_libraries} ${sdk_libs} -Wl,--end-group"
 )
