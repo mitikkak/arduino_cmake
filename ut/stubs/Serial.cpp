@@ -19,5 +19,9 @@ void SerialStub::print(const char,const unsigned) const
 char SerialStub::read() const
 {
 }
+void SerialStub::end() const
+{
+
+}
 
 SerialStub Serial;

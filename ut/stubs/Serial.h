@@ -7,6 +7,7 @@ public:
     void println(const char, const unsigned = 0) const;
     void print(const char*, const unsigned = 0) const;
     void print(const char, const unsigned = 0) const;
+    void end() const;
     char read() const;
 
 };
