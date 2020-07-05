@@ -21,7 +21,15 @@ char SerialStub::read() const
 }
 void SerialStub::end() const
 {
-
+}
+void SerialStub::println(const String&) const
+{
+}
+void SerialStub::write(const char) const
+{
+}
+void SerialStub::println() const
+{
 }
 
 SerialStub Serial;
