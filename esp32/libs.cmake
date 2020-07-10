@@ -56,3 +56,6 @@ set(esp32_async_udp_sources
 set(esp32_dns_server_sources
     ${ESP32_DNS_SERVER_SRC_DIR}/DNSServer.cpp
 )
+set(esp32_mdns_sources
+    ${ESP32_MDNS_SRC_DIR}/ESPmDNS.cpp
+)
