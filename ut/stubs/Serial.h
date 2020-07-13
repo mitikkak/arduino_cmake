@@ -16,6 +16,7 @@ public:
     void write(const char) const;
     void end() const;
     char read() const;
+    bool available() const;
 
 };
 

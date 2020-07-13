@@ -31,5 +31,9 @@ void SerialStub::write(const char) const
 void SerialStub::println() const
 {
 }
+bool SerialStub::available() const
+{
+    return true;
+}
 
 SerialStub Serial;
