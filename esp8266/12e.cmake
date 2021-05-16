@@ -24,4 +24,5 @@ target_include_directories(
 
 elf_to_bin_esp8266_12e(${PROJECT_NAME})
 upload_esp8266_12e(${PROJECT_NAME} elf_to_bin_esp8266_12e_${PROJECT_NAME})
+ota_upload_esp8266_12e(${PROJECT_NAME} elf_to_bin_esp8266_12e_${PROJECT_NAME})
 endfunction(build_targets_esp8266_12e)

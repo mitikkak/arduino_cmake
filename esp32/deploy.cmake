@@ -18,3 +18,8 @@ function(upload_wroom32 NAME DEPS USB_PORT)
         ${DEPS} 
     )
 endfunction()
+
+function(ota_upload_wroom32 NAME DEPS)
+add_custom_target(ota_upload_${NAME} COMMAND python2.7 ${ESP32_PATH}/tools/espota.py -i 192.168.4.1 -p 3232 -f ${NAME}.bin
+                                 DEPENDS ${DEPS})
+endfunction()

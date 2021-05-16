@@ -10,6 +10,8 @@ set(wifi_sources
             ${WIFI_ESP8266_DIR}/ESP8266WiFiAP.cpp
             ${WIFI_ESP8266_DIR}/WiFiUdp.cpp
 )
+set(esp8266_wifi_sources ${wifi_sources})
+
 set(esp8266_webserver_sources
     ${WEB_SERVER_ESP8266_DIR}/ESP8266WebServer.cpp
     ${WEB_SERVER_ESP8266_DIR}/Parsing.cpp
@@ -36,4 +38,6 @@ set(esp8266_sd_sources
 
 set(esp8266_dns_server_sources ${DNS_SERVER_ESP8266_DIR}/DNSServer.cpp
 )
+
+set(esp8266_ota_sources ${OTA_ESP8266_DIR}/ArduinoOTA.cpp)
 

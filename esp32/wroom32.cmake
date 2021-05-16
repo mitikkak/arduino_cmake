@@ -32,5 +32,6 @@ function(build_targets_espwroom32 sources_to_build external_include_dirs)
     upload_wroom32(${PROJECT_NAME} ${partitions_wroom32_prefix}${PROJECT_NAME} 0)
     upload_wroom32(${PROJECT_NAME} ${partitions_wroom32_prefix}${PROJECT_NAME} 1)
     upload_wroom32(${PROJECT_NAME} ${partitions_wroom32_prefix}${PROJECT_NAME} 2)
+    ota_upload_wroom32(${PROJECT_NAME} ${partitions_wroom32_prefix}${PROJECT_NAME})
 
 endfunction(build_targets_espwroom32)

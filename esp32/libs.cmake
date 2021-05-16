@@ -59,3 +59,9 @@ set(esp32_dns_server_sources
 set(esp32_mdns_sources
     ${ESP32_MDNS_SRC_DIR}/ESPmDNS.cpp
 )
+set(esp32_ota_sources
+    ${ESP32_OTA_SRC_DIR}/ArduinoOTA.cpp
+)
+set(esp32_update_sources
+    ${ESP32_UPDATE_SRC_DIR}/Updater.cpp
+)

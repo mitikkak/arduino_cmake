@@ -28,3 +28,8 @@ private_upload_esp8266_12e(${NAME} ${DEPS} 0)
 private_upload_esp8266_12e(${NAME} ${DEPS} 1)
 private_upload_esp8266_12e(${NAME} ${DEPS} 2)
 endfunction()
+
+function(ota_upload_esp8266_12e NAME DEPS)
+add_custom_target(ota_upload_${NAME} COMMAND python2.7 ${ESP8266_PATH}/hardware/esp8266/2.4.0/tools/espota.py -i 192.168.4.1 -p 8266 -f ${NAME}.bin
+                                 DEPENDS ${DEPS})
+endfunction()
